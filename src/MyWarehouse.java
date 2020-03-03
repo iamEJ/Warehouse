@@ -46,24 +46,24 @@ public class MyWarehouse extends Warehouse{
 	public int getAvailableSpace() {
 
 		return totalSpace - clients.stream()
-					          	   .mapToInt(Client::getAvailableSpace)
-					               .sum();
+					   .mapToInt(Client::getAvailableSpace)
+					   .sum();
 	}
 
 	@Override
 	public Client getClientById(int id) {
 
 		return clients.stream()
-					  .filter(c -> c.getId() == id)
-					  .findAny()
-					  .orElse(null);
+			      .filter(c -> c.getId() == id)
+			      .findAny()
+			      .orElse(null);
 	}
 
 	@Override
 	public int getReservedSpace() {
 
 		return clients.stream()
-		          	  .mapToInt(Client::getReservedSpace)
+		              .mapToInt(Client::getReservedSpace)
 		              .sum();
 	}
 
@@ -71,8 +71,8 @@ public class MyWarehouse extends Warehouse{
 	public int getTotalAvailableSpace() {
 
 		return totalSpace - packs.stream()
-	          	  				 .mapToInt(Package::getSpace)
-	          	  				 .sum();
+	          	  		 .mapToInt(Package::getSpace)
+	          	  		 .sum();
 	}
 
 	@Override
@@ -85,7 +85,7 @@ public class MyWarehouse extends Warehouse{
 	public boolean hasClientById(int id) {
 		
 		return clients.stream()
-					  .anyMatch(c -> c.getId() == id);
+			      .anyMatch(c -> c.getId() == id);
 	}
 
 	@Override
